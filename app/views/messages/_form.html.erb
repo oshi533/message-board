@@ -1,0 +1,36 @@
+<%= form_for(@message) do |f| %>
+	
+	<% if @message.errors.present? %>
+		<div class="alert alert-danger">
+	<%= alert %>
+			<ul>
+	<% @message.errors.full_messages.each do |full_message| %>
+				<li>
+	<%= full_message %>
+				</li>
+	<% end %>
+			</ul>
+		</div>
+	<% end %>
+	
+	<div class="form-group">
+		<div class="row">
+			<div class="col-xs-4"> 
+				<%= f.label :name , "名前:", class:"col-xs-4 control-label", for: "exampleInputName" %>
+				<%= f.text_field :name ,:class => "form-control", id: "exampleInputName" %>
+			</div>
+		</div>
+    </div>
+
+	<div class="form-group">    
+		<div class="row">
+			<div class="col-xs-10"> 
+				<%= f.label :name , "内容:", class:"col-xs-4 control-label", for: "exampleInputText" %>
+				<%= f.text_area :body ,:class => "form-control", :rows => 6, id: "exampleInputText" %>
+			</div>
+		</div>
+    </div>
+
+	<%= f.submit class: "btn btn-sm btn-primary" %>
+	
+<% end %>
